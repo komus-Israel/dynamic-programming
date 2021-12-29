@@ -3,8 +3,10 @@ function reverseString(string) {
         return string
     }
 
-    return string[string.length - 1] + reverseString(string.slice(0, string.length - 1))
+    var result = string[string.length - 1] + reverseString(string.slice(0, string.length - 1))
+
+    return result
 
 }
 
-console.log(reverseString("come here"))
+console.log(reverseString("come here to the beach of the sunset"))
