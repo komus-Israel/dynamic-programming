@@ -20,9 +20,7 @@ function abbreviation(a, b, position, result="") {
     return 'NO'
         
     
-
-    
 }
    
 
-console.log(abbreviation("aBCdEfgh", "RTABCDYU", 0))
+console.log(abbreviation("KXzQ", "K", 0))
