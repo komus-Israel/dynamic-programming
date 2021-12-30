@@ -12,7 +12,7 @@ function isValid(string, position, result={}) {
     
 
     if (position <= string.length) {
-        if (string[position] === brackets[string[position - 1]]) {
+        if (string[position + 1] === brackets[string[position]]) {
     
             if(result[true]) {
                 result[true] += 1
@@ -49,5 +49,5 @@ function isValid(string, position, result={}) {
 
 
 //console.log(isValid('()', 0))
-console.log(isValid('{}{}(){}{}', 1))
-console.log(isValid('{({()})}', 1))
+console.log(isValid('{}{}(){}{{', 0))
+console.log(isValid('{({()})}', 0))
