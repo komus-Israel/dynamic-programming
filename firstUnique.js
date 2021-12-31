@@ -23,14 +23,12 @@ function firstUnique(array, position, memo={}) {
         
         
         firstUnique(array, position + 1, memo)
-        
-
-        
+              
         
     }
 
     return minUnique(memo, 0)
-    //return memo
+ 
 
     
 
@@ -49,12 +47,6 @@ function minUnique(memo, position, min = Object.values(memo).length) {
 
             minUnique(memo, position + 1, min)
         }
-        
-
-        
-        
-
-
 }
 
 
