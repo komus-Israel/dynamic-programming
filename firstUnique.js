@@ -18,13 +18,24 @@ function firstUnique(array, position, memo={}) {
 
         firstUnique(array, position + 1, memo)
 
-        return memo
+        return minUnique(memo, 0)
     }
 
     
 
 }
 
+function minUnique(json, position, min = array.length) {
 
-array = [10, 20, 50, 50, 30]
+    if ( json[array[position]] < min) {
+        min = json[array[position]]
+        minUnique(json, position + 1)
+
+        return min
+    }
+
+}
+
+
+array = [10, 10, 20, 50, 50, 30]
 console.log(firstUnique(array, 0))
