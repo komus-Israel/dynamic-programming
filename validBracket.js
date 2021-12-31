@@ -1,4 +1,4 @@
-function isValid(string, position, result={}) {
+function isValid(string, position) {
 
     let brackets = {
         '{' : '}',
@@ -6,39 +6,28 @@ function isValid(string, position, result={}) {
         '(' : ')'
     }
 
-    if (string.length % 2 != 0) {
-        return false
+    if (string.length === 0) {
+        return true
     }
 
-    if(position <= string.length) {
+    splittedString = string.split('')
 
-        if(string[position + 1] === brackets[string[position]]) {
+    if(position <= splittedString.length) {
 
-            if(result[true]) {
-                result[true] += 1
-            } else {
-                result[true] = 1
-            }
-                      
-        } else {
-            if(result[false]) {
-                result[false] += 1
-            } else {
-                result[false] = 1
-            }  
+        if (splittedString[position + 1] === brackets[splittedString[position]]) {
+
+            
+            newArray = splittedString.slice(position, splittedString.length)
+            newString = newArray.join('')
+            console.log(newArray)
+
+            return isValid(newString, 0+2)       
+            
         }
-    
-        isValid(string, position + 2, result)
 
-        return result
+        return false
+   
     }
-
-    
-    
-    
 }
 
-
-console.log(isValid('()(){}', 0))
-//console.log(isValid('{}{}(){}{}', 0))
-//console.log(isValid('({{()}})', 0))
+console.log(isValid('(){}()(){}))))))', 0))
