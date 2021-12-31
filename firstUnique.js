@@ -7,35 +7,56 @@ function firstUnique(array, position, memo={}) {
 
     if (position < array.length) {
 
-        if (memo[array[position]]) {
 
-            memo[array[position]] = false
+        if (array[position] in memo) {
+
+           
+            delete memo[array[position]]
+            
+
         } else {
+
             memo[array[position]] = position
-        }   
-
-       
-
+            
+        }
+        
+        
+        
         firstUnique(array, position + 1, memo)
+        
 
-        return minUnique(memo, 0)
+        
+        
     }
+
+    return minUnique(memo, 0)
+    //return memo
 
     
 
 }
 
-function minUnique(json, position, min = array.length) {
 
-    if ( json[array[position]] < min) {
-        min = json[array[position]]
-        minUnique(json, position + 1)
+function minUnique(memo, position, min = Object.values(memo).length) {
 
-        return min
-    }
+        uniqueArray = Object.values(memo)
+
+        if (position <= uniqueArray.length) {
+
+            if(uniqueArray[position] < min) {
+                return min = uniqueArray[position]
+            }
+
+            minUnique(memo, position + 1, min)
+        }
+        
+
+        
+        
+
 
 }
 
 
-array = [10, 10, 20, 50, 50, 30]
+array = [5, 10, 10, 20, 50, 60, 70, 70]
 console.log(firstUnique(array, 0))
