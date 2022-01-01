@@ -32,8 +32,6 @@ function isValid(string, position) {
         splittedString.pop()
 
         string = splittedString.join('')
-
-       
         return isValid(string, 0)
         
 
