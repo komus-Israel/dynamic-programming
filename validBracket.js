@@ -17,35 +17,26 @@ function isValid(string) {
 
     splittedString = string.split('')
 
-   /*if ( splittedString[position + 1] === brackets[splittedString[position]]) {
 
-        splittedString.shift()
-        splittedString.shift()
+   if (brackets[splittedString[0]] === splittedString[1]) {
 
+        splittedString.splice(0,2)
         string = splittedString.join('')
-        return isValid(string, position + 2)
-        
+        return isValid(string)
+
    }
 
-   if ( splittedString[splittedString.length - 1] === brackets[splittedString[0]]) {
+   if (brackets[splittedString[0]] === splittedString[splittedString.length - 1]) {
+
         splittedString.shift()
         splittedString.pop()
 
         string = splittedString.join('')
         return isValid(string, 0)
-        
 
-   }*/
-
-
-   if (brackets[splittedString[0]] === splittedString[1]) {
-
-        splittedString.splice(0,2)
-        console.log(splittedString)
-        string = splittedString.join('')
-        return isValid(string)
-        
    }
+
+   return false
 
    
 
@@ -55,3 +46,4 @@ function isValid(string) {
 }
 
 console.log(isValid('(){}()'))
+console.log(isValid('({()})}}'))
