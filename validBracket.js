@@ -19,12 +19,24 @@ function isValid(string, position) {
 
    if ( splittedString[position + 1] === brackets[splittedString[position]]) {
 
-        splittedString.pop()
-        splittedString.pop()
+        splittedString.shift()
+        splittedString.shift()
 
         string = splittedString.join('')
         return isValid(string, position + 2)
         
+   }
+
+   if ( splittedString[splittedString.length - 1] === brackets[splittedString[0]]) {
+        splittedString.shift()
+        splittedString.pop()
+
+        string = splittedString.join('')
+
+       
+        return isValid(string, 0)
+        
+
    }
 
    
@@ -34,4 +46,4 @@ function isValid(string, position) {
 
 }
 
-console.log(isValid('(){}()[]]', 0))
+console.log(isValid('(){}()', 0))
