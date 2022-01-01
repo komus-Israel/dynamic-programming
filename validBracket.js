@@ -38,11 +38,6 @@ function isValid(string) {
 
    return false
 
-   
-
-   
-
-
 }
 
 console.log(isValid('(){}()'))
