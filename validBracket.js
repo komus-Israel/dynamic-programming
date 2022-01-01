@@ -1,4 +1,4 @@
-function isValid(string, position) {
+function isValid(string) {
 
     let brackets = {
         '{' : '}',
@@ -17,7 +17,7 @@ function isValid(string, position) {
 
     splittedString = string.split('')
 
-   if ( splittedString[position + 1] === brackets[splittedString[position]]) {
+   /*if ( splittedString[position + 1] === brackets[splittedString[position]]) {
 
         splittedString.shift()
         splittedString.shift()
@@ -35,6 +35,16 @@ function isValid(string, position) {
         return isValid(string, 0)
         
 
+   }*/
+
+
+   if (brackets[splittedString[0]] === splittedString[1]) {
+
+        splittedString.splice(0,2)
+        console.log(splittedString)
+        string = splittedString.join('')
+        return isValid(string)
+        
    }
 
    
@@ -44,4 +54,4 @@ function isValid(string, position) {
 
 }
 
-console.log(isValid('(){}()', 0))
+console.log(isValid('(){}()'))
